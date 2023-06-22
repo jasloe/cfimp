@@ -163,7 +163,7 @@ const { parse } = require('papaparse');
 		if (args.skiprows) {
 			let negate = args.skiprows[0] == '!',
 				terms = args.skiprows.replace(/^!/, '').split(listDelim),
-				inRow = terms.find(skipRule => row.includes(skipRule));
+				inRow = terms.find((skipRule) => Object.values(row).includes(skipRule));
 		 	if ((!negate && inRow) || (negate && !inRow)) return;
 		 }
 
